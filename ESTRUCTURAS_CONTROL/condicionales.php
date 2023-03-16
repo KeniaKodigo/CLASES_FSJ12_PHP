@@ -34,6 +34,74 @@ $b = 8;
 $a = $b - $a; //3
 $b = $a + $b; //
 
+#if anidado
+
+$edad = 28;
+if($edad > 10){
+    echo "Entra a la adolescencia";
+    if($edad == 15){
+        echo "Ya casi tenes 18";
+    }else{
+        echo "Todavia no estas cerca de los 18";
+    }
+}
+
+#utilizando el if compuesto (if-else if-else)
+echo "<br>";
+//evaluando las estaciones del año
+$estacion = "Primavera";
+if($estacion == "Verano"){
+    echo "Estas en verano";
+}else if($estacion == "Primavera"){
+    echo "Estas en primavera";
+}else if($estacion == "Otoño"){
+    echo "Estas en otoño";
+}else if($estacion == "Invierno"){
+    echo "Estas en invierno";
+}else{
+    echo "Ingresa una estacion del año";
+}
+
+//evaluando dias de la semana y saber si ese dia se trabaja o no se trabaja
+$dias = "Viernes";
+
+switch($dias){
+    case "Domingo":
+        echo "Los domingos son descanso";
+        break;
+    case "Lunes":
+        echo "Los lunes se trabaja";
+        break;
+    case "Martes":
+        echo "Los martes se trabaja";
+        break;
+    case "Miercoles":
+        echo "Los miercoles se trabaja";
+        break;
+    case "Jueves":
+        echo "Los jueves se trabaja";
+        break;
+    case "Viernes":
+        echo "Los viernes se trabaja";
+        break;
+    case "Sabado":
+        echo "Los sabados se trabaja hasta el mediodia";
+        break;
+    default:
+        echo "Ingresa un dia de la semana";
+}
+
+if($dias == "Lunes" || $dias == "Martes" || $dias == "Miercoles" || $dias == "Jueves" || $dias == "Viernes"){
+    echo "Es un dia de trabajo";
+}else if($dias == "Sabado"){
+    echo "Estas trabajando hasta el mediodia";
+}else if($dias == "Domingo"){
+    echo "Estas descansando";
+}else{
+    echo "Ingresa un dia de la semana";
+}
+
+
 
 
 
