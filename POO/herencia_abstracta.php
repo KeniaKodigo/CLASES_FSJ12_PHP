@@ -9,7 +9,6 @@
 
 
 #instanciar
-
 abstract class Humano{
     //atributos y metodos
     public $nombre;
