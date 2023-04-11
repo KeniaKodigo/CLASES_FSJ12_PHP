@@ -21,19 +21,18 @@ interface Animal3{
     public function obtenerNombre();
 }
 
-class Gato extends Animal{
-
+class Gato extends Animal2{
+    /** sobreescribir el metodo */
     public function hacerSonido()
     {
-        return "Los gatos le hacen miau miau";
+        return "Los gatos hacen miau miau";
     }
 }
 
-class Gallo extends Animal{
-
+class Gallo extends Animal2{
     public function hacerSonido()
     {
-        return "Los gallos le hacen quiquiriki";
+        return "Los gallos hacen quiquiriki";
     }
 }
 
