@@ -30,6 +30,7 @@ class Vehiculo{
         $this->numero_puertas = $num;
     }
 
+
     #Asignacion de metodos
     private function encender(){
         //code..

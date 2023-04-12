@@ -10,7 +10,6 @@
  * private: solo hay acceso dentro de la clase
  */
 
-
 class Animal{
     public $nombre;
     protected $edad;
