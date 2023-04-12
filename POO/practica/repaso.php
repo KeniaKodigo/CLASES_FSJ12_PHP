@@ -38,6 +38,8 @@
  * clase abstracta: Son clases que no pueden ser instanciadas (no crean objetos) solamente heredadas, para que sea abstracta tiene que tener como minimo un metodo abstracto (osea un metodo sin comportamiento)
  * 
  * Programacion estructurada: Es un estilo de programacion que se basa en funciones y estructuras de control (condicionales (if, switch, operador ternario), bucles (for, foreach, while, do while))
+ * 
+ * Interfaz: Es un contrato que tiene las clases y estan obligadas a tener todos los metodos que tenga la interfaz
  */
 
 function multiplicar(){
@@ -93,13 +95,33 @@ class Cientifica extends Calculadora{
 }
 
 abstract class Producto{
+    public $nombre;
+    protected $precio;
+    public $cantidad;
+
     //atributos, metodos
     abstract function describirProduct();
+
+    public function obtenerProveedor(){
+        return "Proveedores para biberes de una tienda";
+    }
 }
 
 class Venta extends Producto{
 
     public function describirProduct()
+    {
+        //code..
+    }
+}
+
+interface Articulo{
+    public function describirArticulo(); 
+}
+
+class Compra implements Articulo{
+
+    public function describirArticulo()
     {
         //code..
     }
