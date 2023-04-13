@@ -18,6 +18,8 @@ class Archivo{
             //code..
         }else if($archivo == "jpg"){
             //code..
+        }else if($archivo == "MP4"){
+
         }
         else{
             return "Selecciona un tipo de archivo";
@@ -56,13 +58,35 @@ class Gif implements TipoArchivo{
 class SVG implements TipoArchivo{
     public function imprimirArchivo()
     {
-        return "Archivo SVG";
+        return "Esta obteniendo un Archivo SVG";
+    }
+}
+
+class PNG implements TipoArchivo{
+    public function imprimirArchivo()
+    {
+        return "Archivo PNG";
     }
 }
 
 
+function archivo(TipoArchivo $document){
+    /**
+     * $document = interface TipoArchivo {
+     *  public function imprimirArchivo();
+     * }
+     */
+    echo $document->imprimirArchivo(); //hacemos llamado del metodo de la interfaz
+}
 
-class Developer{
+
+echo archivo(new SVG);
+echo "<br>";
+echo archivo(new Gif);
+echo "<br>";
+echo archivo(new Mp4);
+
+/*class Developer{
 
     public function tareas($developer){
         switch($developer){
@@ -112,6 +136,6 @@ class DataAnality extends typeDeveloper{
     {
         return "Tarea: Base de datos";
     }
-}
+}*/
 
 ?>
