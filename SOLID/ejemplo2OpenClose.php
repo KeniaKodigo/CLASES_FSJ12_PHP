@@ -43,4 +43,11 @@ class Estrella extends Figura2{
     }
 }
 
+class Triangulo extends Figura2{
+    public function dibujar()
+    {
+        //code.. para dibujar triangulos
+    }
+}
+
 ?>
