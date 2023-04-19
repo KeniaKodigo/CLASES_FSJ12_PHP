@@ -54,6 +54,13 @@ class MongoDB extends TipoConexion{
     }
 }
 
+class Oracle extends TipoConexion{
+    public function buscarProducto($producto)
+    {
+        return "El producto $producto que estas buscando esta en Oracle";
+    }
+}
+
 class GestionProduct{
     /**
      * este metodo recibe objeto de la clase abstracta TipoConexion, por lo tanto tiene acceso
@@ -69,5 +76,8 @@ echo $conexion1->gestionarPago("azucar morena", new MYSQL);
 echo "<br>";
 $conexion2 = new GestionProduct();
 echo $conexion2->gestionarPago("salsa picante", new SQL);
+echo "<br>";
+$conexion3 = new GestionProduct();
+echo $conexion3->gestionarPago("soda pepsi", new Oracle);
 
 ?>

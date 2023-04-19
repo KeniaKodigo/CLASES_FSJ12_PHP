@@ -41,6 +41,11 @@ class Planilla{
     public function obtenerSalarioNeto(){
         return $this->sueldoneto = $this->sueldobruto - ($this->isss + $this->afp);
     }
+
+
+    public function imprimirInfo(){
+        return "<b>Empleado: </b> $this->nombre<br>" . "<b>Sueldo Bruto: </b> $" . number_format($this->sueldobruto, 2) . "<br><b>Seguro Social: </b> $" . number_format($this->isss, 2) . "<br><b>AFP: </b> $" . number_format($this->afp, 2) . "<br><b>Sueldo Neto: </b> $" . number_format($this->sueldoneto, 2);
+    }
 }
 
 

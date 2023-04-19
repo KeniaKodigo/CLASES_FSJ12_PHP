@@ -17,6 +17,9 @@ class DOMPDF{
 #clase de alto nivel
 class GestionInventario{
 
+    /**
+     *obligamos al metodo que solo reciba objetos de FPDF
+     */
     public function obtenerEntradas(){
         $pdf = new FPDF(); //instancia directa
         echo $pdf->imprimirPDF("Computadoras");
@@ -51,7 +54,7 @@ class LibNewPDF implements LibreriasPDF{
     }
 }
 
-
+#clase de alto nivel
 class Inventario{
 
     #metodo que recibe los objetos de la interfaz LiberiasPDF
