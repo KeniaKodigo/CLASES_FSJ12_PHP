@@ -34,6 +34,9 @@
 
         <?php
             if(isset($_POST['nombre'], $_POST['tipo_empleado'], $_POST['horas'])){
+                /**
+                 * crear un objeto de la clase PayROLL
+                 */
                 $empleado = new PayRoll($_POST['nombre'], $_POST['tipo_empleado'], $_POST['horas']);
                 $empleado->obtenerSueldoBruto();
                 $empleado->obtenerISSS();
