@@ -8,6 +8,14 @@
  * personajes: Mario Bross, Finn, Luigi (los objetos a crear)
  */
 
+class VideoJuego{
+    public function crearMarioBross(){
+        //code..
+    }
+}
+
+$juego = new VideoJuego(); //todos los personajes
+
 interface Personaje{
     public function fuerza();
     public function velocidad();
@@ -53,7 +61,7 @@ class Luigi implements Personaje{
 abstract class NivelFabrica{
 
     /** metodo que va recibir objetos de la interfaz Personaje */
-    abstract function obtenerPersonaje() : Personaje; //mario bross, finn, luigi
+    abstract function obtenerPersonaje() : Personaje; //mario bross, finn, luigi (obligamos que el metodo cree un objeto)
 
     /** metodo publico que va imprimir el comportamiento del personaje  */
     public function imprimirHabilidades(){
@@ -101,12 +109,12 @@ function obtenerNivel(NivelFabrica $fabrica){ //recibe nivelfacil, nivelintermed
 }
 
 echo "<h2>Nivel Facil</h2>";
-echo obtenerNivel(new NivelFacil);
+echo obtenerNivel(new NivelFacil); //fuerza y velocidad de mario
 
 echo "<h2>Nivel Intermedio</h2>";
-echo obtenerNivel(new NivelIntermedio);
+echo obtenerNivel(new NivelIntermedio); //fuerza y velocidad de finn
 
 echo "<h2>Nivel Dificil</h2>";
-echo obtenerNivel(new NivelDificil);
+echo obtenerNivel(new NivelDificil); //fuerza y velocidad de luigi
 
 ?>
