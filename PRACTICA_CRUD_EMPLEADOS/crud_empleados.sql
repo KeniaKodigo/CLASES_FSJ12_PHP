@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-05-2023 a las 18:27:44
+-- Tiempo de generación: 09-05-2023 a las 16:10:38
 -- Versión del servidor: 10.4.16-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -101,8 +101,37 @@ CREATE TABLE `empleado` (
   `password` varchar(10) DEFAULT NULL,
   `id_departamento` int(11) DEFAULT NULL,
   `id_cargo` int(11) DEFAULT NULL,
-  `id_rol` int(11) DEFAULT NULL
+  `id_rol` int(11) DEFAULT NULL,
+  `id_estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `empleado`
+--
+
+INSERT INTO `empleado` (`id`, `nombre`, `apellido`, `salario`, `carnet`, `telefono`, `correo`, `password`, `id_departamento`, `id_cargo`, `id_rol`, `id_estado`) VALUES
+(1, 'Jose Luis', 'rosales', 850.25, 'CA1248', 6523145, 'luis@hotmail.com', '123', 4, 2, 1, 1),
+(2, 'Carolina ', 'jimenez', 800, 'ma125', 62514789, 'carolinam@gmail.com', '12345', 4, 3, 1, 1),
+(3, 'Maria Carmen', 'Benitez Juarez', 500, 'MBJ2023', 75502063, 'carmenMari@gmail.com', '12345', 3, 1, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estado`
+--
+
+CREATE TABLE `estado` (
+  `id` int(11) NOT NULL,
+  `estado` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `estado`
+--
+
+INSERT INTO `estado` (`id`, `estado`) VALUES
+(1, 'activo'),
+(2, 'inactivo');
 
 -- --------------------------------------------------------
 
@@ -154,7 +183,14 @@ ALTER TABLE `empleado`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_departamento` (`id_departamento`),
   ADD KEY `id_cargo` (`id_cargo`),
-  ADD KEY `id_rol` (`id_rol`);
+  ADD KEY `id_rol` (`id_rol`),
+  ADD KEY `fk_idestado` (`id_estado`);
+
+--
+-- Indices de la tabla `estado`
+--
+ALTER TABLE `estado`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `rol`
@@ -176,25 +212,31 @@ ALTER TABLE `administrador`
 -- AUTO_INCREMENT de la tabla `cargo`
 --
 ALTER TABLE `cargo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `departamento`
 --
 ALTER TABLE `departamento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `estado`
+--
+ALTER TABLE `estado`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
 --
 ALTER TABLE `rol`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
