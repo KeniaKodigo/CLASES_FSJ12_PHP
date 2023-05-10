@@ -1,4 +1,3 @@
-<?php  require "./clases/Empleado.php";  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +8,11 @@
     <title>Registro de Empleados</title>
 </head>
 <body>
+    <header>
+        <?php include "./modulos/nav.php"; ?>
+    </header>
     <?php
+        require "../clases/Empleado.php"; 
         //instanciando la clase de empleados
         $empleado = new Empleado();
         //asignamos una variable para los departamentos de la bd que vamos a iterar
@@ -58,5 +61,6 @@
         </form>
         <?php $empleado->insertar(); ?>
     </div>
+    <?php include "./modulos/footer.php"; ?>
 </body>
 </html>

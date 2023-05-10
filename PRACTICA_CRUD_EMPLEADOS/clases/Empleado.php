@@ -14,9 +14,9 @@ class Empleado extends Conexion{
     protected $id_departamento;
     protected $id_cargo;
     protected $id_rol;
+    protected $id_estado;
 
     /** CRUD de empleados */
-
     //metodo para obtener todos los departamentos
     public function departamentos(){
         $this->conectar();
@@ -58,9 +58,10 @@ class Empleado extends Conexion{
             $this->id_departamento = $_POST['departamento'];
             $this->id_cargo = $_POST['cargo'];
             $this->id_rol = 1;
+            $this->id_estado = 1; //empleado activo
 
             //consulta para insertar en la base de datos
-            $query = "INSERT INTO empleado(nombre, apellido, salario, carnet, telefono, correo, password, id_departamento, id_cargo,id_rol) VALUES ('$this->nombre', '$this->apellido', $this->salario, '$this->carnet', $this->telefono, '$this->correo', '$this->password', $this->id_departamento, $this->id_cargo, $this->id_rol)";
+            $query = "INSERT INTO empleado(nombre, apellido, salario, carnet, telefono, correo, password, id_departamento, id_cargo,id_rol, id_estado) VALUES ('$this->nombre', '$this->apellido', $this->salario, '$this->carnet', $this->telefono, '$this->correo', '$this->password', $this->id_departamento, $this->id_cargo, $this->id_rol, $this->id_estado)";
 
             $result = mysqli_query($this->conexion, $query);
             //validando que se haya guardado el registro y retorne a otra vista
@@ -78,7 +79,7 @@ class Empleado extends Conexion{
     //obteniendo todos los empleados
     public function getEmpleados(){
         $this->conectar();
-        $query = "SELECT empleado.*, departamento.nombre AS departamento, cargo.nombre AS cargo  FROM empleado INNER JOIN departamento ON empleado.id_departamento = departamento.id INNER JOIN cargo ON empleado.id_cargo = cargo.id";
+        $query = "SELECT empleado.*, departamento.nombre AS departamento, cargo.nombre AS cargo  FROM empleado INNER JOIN departamento ON empleado.id_departamento = departamento.id INNER JOIN cargo ON empleado.id_cargo = cargo.id WHERE empleado.id_estado = 1";
         $result = mysqli_query($this->conexion, $query);
         return $result;
     }
@@ -123,6 +124,22 @@ class Empleado extends Conexion{
                 header("location: empleados.php");
             }else{
                 echo "Error al actualizar el empleado";
+            }
+        }
+    }
+
+    //actualizando el estado del empleado en inactivo
+    public function desactivar(){
+        if(isset($_POST['id_empleado'])){
+            $this->id = $_POST['id_empleado']; //6
+            $this->id_estado = 2; //empleado inactivo
+            $this->conectar();
+            $query = "UPDATE empleado SET id_estado = $this->id_estado WHERE id = $this->id";
+            $result = mysqli_query($this->conexion, $query);
+            if(!empty($result)){
+                echo "";
+            }else{
+                echo "No se pudo desactivar el empleado";
             }
         }
     }

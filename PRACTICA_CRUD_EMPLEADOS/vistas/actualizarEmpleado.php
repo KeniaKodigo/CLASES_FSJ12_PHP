@@ -1,4 +1,4 @@
-<?php  require "./clases/Empleado.php";  ?>
+<?php  require "../clases/Empleado.php";  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

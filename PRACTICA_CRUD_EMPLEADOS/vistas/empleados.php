@@ -1,4 +1,3 @@
-<?php require "./clases/Empleado.php";  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,11 +8,15 @@
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <?php include "./modulos/nav.php"; ?>
+    </header>
     <?php 
+        require "../clases/Empleado.php";
         $empleado = new Empleado();
         $datos = $empleado->getEmpleados();
     ?>
-    <h1 class="text-center">Lista de Empleados</h1>
+    <h1 class="text-center">Lista de Empleados Activos</h1>
     <div class="container">
     <table class="table table-dark">
         <thead>
@@ -40,7 +43,10 @@
                         </form>
                     </td>
                     <td>
-                        <button class="btn btn-danger">Eliminar</button>
+                        <form action="" method="POST">
+                            <input type="hidden" name="id_empleado" value="<?php echo $item["id"]; ?>">
+                            <input type="submit" class="btn btn-danger" value="Eliminar" />
+                        </form>
                     </td>
                 </tr>
 
@@ -79,7 +85,9 @@
             <?php } ?>
         </tbody>
     </table>
+    <?php $empleado->desactivar();  ?>
     </div>
+    <?php include "./modulos/footer.php"; ?>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </html>
