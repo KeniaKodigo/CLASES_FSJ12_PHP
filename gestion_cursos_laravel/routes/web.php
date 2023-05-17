@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CoursesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,7 @@ Route::get('/', function () {
 });
 
 /** ruta donde llama el metodo del controlador */
+Route::get('/courses', [CoursesController::class, 'index'])->name('getCourses');
+/** route() => hace referencia al name de la ruta, url() => hace referencia al primer parametro de la ruta ('/courses') */
+
+Route::get('/form', [CoursesController::class, 'viewForm'])->name('formCourses');
