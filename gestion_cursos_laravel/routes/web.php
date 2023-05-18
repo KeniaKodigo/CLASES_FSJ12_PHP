@@ -23,4 +23,18 @@ Route::get('/', function () {
 Route::get('/courses', [CoursesController::class, 'index'])->name('getCourses');
 /** route() => hace referencia al name de la ruta, url() => hace referencia al primer parametro de la ruta ('/courses') */
 
+#ruta para ver el formulario de registro del curso
 Route::get('/form', [CoursesController::class, 'viewForm'])->name('formCourses');
+
+/** peticiones POST,PUT O DELETE => necesitamos permiso en laravel @csfr */
+#Ruta para guardar un curso
+Route::post('/save', [CoursesController::class, 'store'])->name('saveCourse');
+
+#Ruta para obtener un curso en especifico por su ID
+Route::get('/editCourse/{id}', [CoursesController::class, 'edit'])->name('editById');
+
+#Ruta para actualizar un curso en especifico
+Route::put('/updateCourse/{id}', [CoursesController::class, 'update'])->name('updateById');
+
+#Ruta para eliminar un curso en la base de datos (eliminamos de forma permanente)
+Route::delete('/delete/{id}', [CoursesController::class, 'destroy'])->name('deleteById');

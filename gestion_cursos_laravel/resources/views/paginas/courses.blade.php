@@ -10,7 +10,7 @@
     <div class="row">
         @foreach ($cursos as $item)
             <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
+                <div class="card mb-4" style="width: 18rem;">
                     <!-- url('/'): hace referencia a la carpeta public  -->
                     <img src="{{ url('/') }}/img/curso.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -18,8 +18,18 @@
                     <p class="card-text">{{ $item->description }}</p>
                     <p><b>Precio:</b> {{ $item->price }}</p>
                     
-                    <button class="btn btn-primary">Editar</button>
-                    <button class="btn btn-danger">Eliminar</button>
+                    <form action="{{ route('editById', $item->id) }}" method="POST">
+                        <!-- asigno y actualizo la peticion -->
+                        @method('GET')
+                        <button class="btn btn-primary">Editar</button>
+                    </form>
+                    
+                    <form action="{{ route('deleteById', $item->id) }}" method="POST">
+                        @method('DELETE')
+                        @csrf <!-- solicitamos el token de laravel para ejecutar la accion -->
+                        <button class="btn btn-danger">Eliminar</button>
+                    </form>
+                    
                     </div>
                 </div>
             </div>

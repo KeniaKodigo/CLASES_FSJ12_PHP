@@ -3,7 +3,10 @@
 @section('contenido')
     <h1 class="text-center text-success">Registrar Curso</h1>
 
-    <form action="" method="POST">
+    <!-- haciendo un llamado al name de la ruta de saveCourse -->
+    <form action="{{ route('saveCourse') }}" method="POST">
+        <!-- solicitamos token para el envio de datos -->
+        @csrf
         <label for="">Titulo</label>
         <input type="text" name="title" class="form-control">
 
@@ -11,7 +14,7 @@
         <input type="text" name="description" class="form-control">
 
         <label for="">Precio</label>
-        <input type="text" name="price" class="form-control">
+        <input type="text" name="Price" class="form-control">
 
         <label for="">Selecciona Instructor</label>
         <select name="instructores" class="form-control">
