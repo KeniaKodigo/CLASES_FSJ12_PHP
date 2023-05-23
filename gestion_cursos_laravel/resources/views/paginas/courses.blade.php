@@ -7,6 +7,7 @@
 
     <a href="{{ url('/form') }}" class="btn btn-secondary mb-3">Registrar Curso</a>
 
+    <a href="{{ url('/reporte_cursos') }}" target="_blank" class="btn btn-success mb-3">Generar Reporte</a>
     <div class="row">
         @foreach ($cursos as $item)
             <div class="col-md-4">

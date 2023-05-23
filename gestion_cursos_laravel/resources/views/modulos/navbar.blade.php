@@ -13,7 +13,7 @@
                 <a class="nav-link" href="{{ url('/courses') }}">Courses</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Instructors</a>
+                <a class="nav-link" href="{{ url('/instructores') }}">Instructors</a>
             </li>
         </ul>
         </div>

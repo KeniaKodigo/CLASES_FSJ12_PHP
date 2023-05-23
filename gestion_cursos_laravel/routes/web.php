@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\InstructoresController;
+use App\Http\Controllers\PDFController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,3 +40,10 @@ Route::put('/updateCourse/{id}', [CoursesController::class, 'update'])->name('up
 
 #Ruta para eliminar un curso en la base de datos (eliminamos de forma permanente)
 Route::delete('/delete/{id}', [CoursesController::class, 'destroy'])->name('deleteById');
+
+
+#Ruta para la busqueda de instructores
+Route::get('/instructores', [InstructoresController::class, 'index'])->name('getInstructor');
+
+#Ruta para generar el reporte de todos los cursos
+Route::get('/reporte_cursos', [PDFController::class, 'getCursos'])->name('reporteCursos');
