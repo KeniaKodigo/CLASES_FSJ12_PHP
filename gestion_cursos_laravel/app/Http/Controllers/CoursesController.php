@@ -72,10 +72,6 @@ class CoursesController extends Controller
         $curso->price = $request->post('Price');
         $curso->id_instructor = $request->post('instructores');
         $curso->update();
-
-        //update courses set title = 'campoFormulario', description = '', price = '', id_instructor = '' where id = ? 
-
-        //redireccionamos al apartado de cursos por el name de la ruta que esta en web.php
         return redirect()->route('getCourses');
     }
 
